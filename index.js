@@ -7,14 +7,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/', function(req, res, next) {
-  // Handle the get for this route
-});
-
-app.post('/endpoint', function(req, res, next) {
- 	var obj = {};
-	console.log(req);
-	res.send(req.body);
+app.get('/platosPlate/addDatappoint', function(req, res, next) {
+  console.log('cool Beens!');
 });
  
 app.listen(3000);
