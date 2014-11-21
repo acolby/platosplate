@@ -10,7 +10,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/platosPlate/addDatappoint', function(req, res, next) {
-  console.log(numberOfRequests + ' cool Beens!');
+  console.log(numberOfRequests++ + ' cool Beens!');
   res.send('yo');
 });
  
