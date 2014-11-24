@@ -13,5 +13,10 @@ app.get('/platosPlate/addDatappoint', function(req, res, next) {
   console.log(numberOfRequests++ + ' cool Beens!');
   res.send('yoooo');
 });
+
+app.all('/*', function(req, res, next) {
+  console.log('Intercepting requests ...');
+  res.send('other requests');
+})
  
 app.listen(3000);
