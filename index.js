@@ -9,14 +9,14 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/platosPlate/addDatappoint', function(req, res, next) {
-  console.log(numberOfRequests++ + ' cool Beens!');
+app.get('/platosPlate/addDatappoint/:value', function(req, res, next) {
+  console.log(numberOfRequests++ + ' cool Beens! ' + value);
   res.send('yoooo');
 });
 
 app.all('/*', function(req, res, next) {
   console.log('Intercepting requests ...');
-  res.send('other requests');
+  res.send('other requests'); 
 })
  
 app.listen(3000);
