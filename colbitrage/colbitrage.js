@@ -20,6 +20,8 @@ function getBtcePrices(){
 					defered.resolve(btcePrice);
 				}
 			else{
+				console.log('error geting btce prices:');
+				console.log(err);
 				defered.reject(err);
 			}
 		}
@@ -34,6 +36,8 @@ function getCoinbaseBuyPrice(){
 			defered.resolve(json.amount * 0.99);
 		}
 		else{
+			console.log('error geting coinbase buy price:');
+			console.log(err);
 			defered.reject(err);
 		}
 	});
@@ -47,6 +51,8 @@ function getCoinbaseSellPrice(){
 			defered.resolve(json.amount * 1.01);
 		}
 		else{
+			console.log('error geting coinbase sell price:');
+			console.log(err);
 			defered.reject(err);
 		}
 	});
