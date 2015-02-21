@@ -1,0 +1,26 @@
+div
+	p.commentOverview-mainParagraph(ng-show='numberOfComments > 0')
+		span
+			a(ng-click='showComments = !showComments', href='')
+				span(ng-pluralize count="numberOfComments", when="{'0': '{} comments', '1': '{} comment','other': '{} comments'}") 
+	div(ng-show='showComments')
+		hr
+		div(ng-repeat='(id, date) in item.ids_comments')
+			div.commentOverview.commentOverview-question(comment-overview, id='id', type='type', style='margin-bottom:20')
+			br
+		hr
+		a(ng-click='showAddArea = !showAddArea', ng-hide='showAddArea') + add comment
+	a(ng-click='showAddArea = !showAddArea', ng-show='numberOfComments < 1 && !showAddArea') + add comment
+	div.row(ng-show='showAddArea')
+		div.col-md-12
+			textarea(autogrow, ng-model='newComment')
+			span(style='float:left;')
+				p.comments-addlabel label  &nbsp;&nbsp;
+					span.btn-group
+						button(ng-repeat='label in selectedLabels', ng-class='{active: label.selected === true}', ng-click='labelClicked(label)') 
+							span 
+								i.fa(ng-class='label.icon') 
+								span &nbsp;&nbsp; {{label.name}} &nbsp;&nbsp;
+			span(style='float:right; margin-top:7px;')
+				button.comments-btn-post(ng-click='postClicked()') post
+				button.comments-btn-exit(ng-click='showAddArea = false') x

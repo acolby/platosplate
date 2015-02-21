@@ -1,0 +1,53 @@
+div
+	div.panel.panel-profile
+		div.panel-heading.text-center.bg-info
+			br
+			img.img-circle.img80_80(ng-src="{{profile.user.public.imageURL}}")
+			h3(style='text-transform: capitalize;') {{profile.user.public.displayName}}
+		div.list-justified-container
+			ul.list-justified.text-center
+				li
+					p.size-h3 {{profile.profile.questionsPosed.length}}
+					p.text-muted Questions Posed
+				li
+					p.size-h3 0
+					p.text-muted Ideas Posted
+				li
+					p.size-h3 {{profile.profile.questionsViewed.length}}
+					p.text-muted Favorates
+	section.panel.panel-default(ng-show="profile.profile.questionsPosed.length > 0")
+		h3.heading.text-thin &nbsp;&nbsp;Questions Posed
+		div.panel-body
+			section.panel.panel-default(ng-repeat='question in profile.profile.questionsPosed')
+				div.panel-body(ng-click='questionClicked(question)', style='cursor:pointer;')
+					h4 {{question.edits[question.edits.length -1].text}}
+					p
+						span(tooltip="number of views")
+							i.fa.fa-eye
+							span &nbsp;&nbsp;{{question.numberOfViews}}&nbsp;&nbsp;&nbsp;&nbsp;
+						span(tooltip="number of ideas posted")
+							i.fa.fa-lightbulb-o
+							span &nbsp;&nbsp;{{question.numberOfIdeas}}&nbsp;&nbsp;&nbsp;&nbsp;
+						span(tooltip="number of comments posted")
+							i.fa.fa-wechat
+							span &nbsp;&nbsp;{{question.numberOfComments}}&nbsp;&nbsp;
+	section.panel.panel-default(ng-show="profile.profile.questionsViewed.length > 0")
+		h3.heading.text-thin &nbsp;&nbsp;Questions Viewed
+		div.panel-body
+			section.panel.panel-default(ng-repeat='question in profile.profile.questionsViewed')
+				div.panel-body(ng-click='questionClicked(question)', style='cursor:pointer;')
+					h4 {{question.edits[question.edits.length -1].text}}
+					p
+						span(tooltip="number of views")
+							i.fa.fa-eye
+							span &nbsp;&nbsp;{{question.numberOfViews}}&nbsp;&nbsp;&nbsp;&nbsp;
+						span(tooltip="number of ideas posted")
+							i.fa.fa-lightbulb-o
+							span &nbsp;&nbsp;{{question.numberOfIdeas}}&nbsp;&nbsp;&nbsp;&nbsp;
+						span(tooltip="number of comments posted")
+							i.fa.fa-wechat
+							span &nbsp;&nbsp;{{question.numberOfComments}}&nbsp;&nbsp;	
+	// div.col-md-12
+		section.panel.panel-default
+			div.panel-body
+				pre {{profile | json}}

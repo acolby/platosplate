@@ -1,0 +1,56 @@
+<div>
+    <br>
+    <div class="col-md-12" ng-click='questionClicked(question.id)'>
+    	<section class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                    	<div class='editableText editableHeader' editable-text editable='question.id_author === userState.user.public.id' text='question.edits[question.edits.length - 1].text' text-edited-callback='editQuestion'></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                    	<div class='publicUser questionAuthor' public-user id='question.id_author'></div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <section class="panel panel-default">
+                            <div class="panel-body">
+                                <div class='comments comments-question' comments item='question' type='{{"question"}}'></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-md-12">
+        <section class="panel panel-default">
+            <h3>&nbsp;&nbsp;<span ng-pluralize count="question.numberOfIdeas" when="{'0': 'no ideas have been posted yet', '1': '1 idea', 'other': '{} ideas'}"></span></h3>
+            <hr>
+            <div class="panel-body">
+                <section class="panel panel-default" ng-repeat='(id, date) in question.ids_ideas'>
+                    <div class="panel-body">
+                        <div idea-overview id='id'></div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-md-12" ng-click='questionClicked(question.id)' style='cursor:pointer;'>
+    	<section class="panel panel-default">
+            <h3>&nbsp;&nbsp;add idea</h3>
+            <hr>
+            <div class="panel-body">
+    			<textarea ng-model='ideaText' name="" id="" class="form-control" rows="1"></textarea>
+    			<br>
+            	<button class='btn btn-w-md btn-gap-v btn-primary' ng-click='addIdeaToQuestion()'>submit idea</button>
+            </div>
+        </section>
+    </div>
+
+</div>

@@ -1,0 +1,27 @@
+<div document-clicked='documentClicked'>
+	<div class='plainTextContainer' ng-class='{editable: editable === true}' ng-show='!editing || !editable' ng-click='editClicked()'>
+		<p class='planText'><span ng-show='type'><span class='label label-primary'><i class='fa' ng-class='labelCopy.icon'></i><span>&nbsp;{{labelCopy.name}}</span></span> &nbsp;&nbsp;</span>{{text}}</p>
+		<button ng-show='editable' class='edit'><i class='fa fa-edit'></i> edit</button>
+		
+	</div>
+	<div class='editingContainer' ng-show='editing && editable'>
+		<textarea autogrow class='modifyTextarea' ng-model='textCopy'></textarea>
+		<span ng-show='type' class='editableText-labels'>
+			<p class="comments-addlabel">label  &nbsp;&nbsp;
+				<span class="btn-group">
+					<button ng-repeat="label in selectedLabels" ng-class="{active: label.selected === true}" ng-click="labelClicked(label)">
+						<span>
+							&nbsp;<i ng-class="label.icon" class="fa"> </i>
+							<span>&nbsp;&nbsp; {{label.name}} &nbsp;&nbsp;</span>
+						</span>
+					</button>
+				</span>
+			</p>
+		</span>
+		<span class='editableText-buttons'>
+			<button class='done-btn' ng-click='doneClicked()'>done</button>
+			<button class='cancel-btn' ng-click='editing = false'>X</button>
+		</span>
+	</div>
+	<div style='clear:both;'>
+</div>

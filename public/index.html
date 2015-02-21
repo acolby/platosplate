@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>platosplate</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="stylesheet" href="components/angular-chart.js/dist/angular-chart.css">
+
+
+        <link rel="stylesheet" href="components/font-awesome/css/font-awesome.min.css">
+        <!--
+        <link rel="stylesheet" href="bower_components/weather-icons/css/weather-icons.min.css">
+    -->
+
+        <script type="text/javascript">
+            window.isltIE10 = false;
+        </script>
+        <!--[if lt IE 9]>
+            window.isltIE10 = true;
+        <![endif]-->
+
+        <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqSDC0UV0ozgOFP198G_hn88qPFnF60jw">
+        </script>
+
+    </head>
+
+    <body data-ng-app="platosplate" id="app" data-custom-page="" data-off-canvas-nav="" class="layout-boxed app">
+
+        <section data-ng-include="'views/partials/header.html'" id="header" class="header-container" data-ng-class="{'header-fixed': admin.fixedHeader}" data-ng-intro-options="introOptions" data-ng-intro-method="startIntro" data-ng-intro-autostart="true" style='max-height:50px;'></section>
+
+        <div class="main-container" style='height:100%;'>
+             <section ng-view="" id="content" class="animate-fade-up" style='height:100%'></section>
+        </div>
+
+
+        <!-- libraries -->
+        <script src="components/jquery/dist/jquery.js"></script>
+        <script src="components/angular/angular.js"></script>
+        <script src="components/angular-bootstrap/ui-bootstrap.js"></script>
+        <script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="components/angular-resource/angular-resource.js"></script>
+        <script src="components/angular-cookies/angular-cookies.js"></script>
+        <script src="components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="components/angular-route/angular-route.js"></script>
+        <script src="components/angular-ui/build/angular-ui.js"></script>
+        <script src="components/firebase/firebase.js"></script>
+        <script src="components/tinycon/tinycon.js"></script>
+        <script src="components/Chart.js/Chart.js"></script>
+        <script src="components/angular-chart.js/dist/angular-chart.js"></script>
+
+        <!-- App -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/HomeCtrl.js"></script>
+
+        <script src="scripts/directives/editableText.js"></script>
+        <script src="scripts/directives/autoGrow.js"></script>
+        <script src="scripts/directives/documentClicked.js"></script>
+
+  </body>
+
+</html>

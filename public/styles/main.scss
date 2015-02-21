@@ -1,0 +1,334 @@
+
+@import 
+    "global/var"                        // global variables
+,   "bootstrap-sass/bootstrap"          // Bootstrap, Note: files that has CONTENT changed are "_variables.scss", "_grid.scss", "_mixins.scss" (make-grid-columns())
+,   "bourbon/bourbon"                   // mixins
+
+    // UI, uses Bootstrap's variables
+,   "ui/ui"
+
+    // Plugins, overrides plugins' style
+,   "plugins/bootstrap-slider"
+,   "plugins/responsive-tables"
+,   "plugins/easypiecharts"
+,   "plugins/toastr"
+,   "plugins/sparkline"
+,   "plugins/jquery-steps"
+,   "plugins/angular-ui-tree"
+,   "plugins/morris"
+,   "plugins/jqvmap"
+,   "plugins/ng-tags-input"
+,   "plugins/intro"
+
+    // Pages
+,   "global/var-pages"
+,   "pages/dashboard"
+,   "pages/pages"
+,   "pages/err"
+,   "pages/lock-screen"
+,   "pages/tasks"
+,   "pages/auth"
+,   "pages/profile"
+,   "pages/ui"
+,   "pages/invoice"
+,   "pages/demo"
+
+    // sections
+,   "sections/layouts"
+,   "sections/shared"
+,   "sections/nav"
+,   "sections/nav-off-canvas"
+,   "sections/nav-horizontal"
+,   "sections/nav-min"
+,   "sections/header"
+,   "sections/body"
+;
+
+
+// ******** DIRECTIVES *********
+
+// editableText
+// - editableHeader
+.editableText.editableHeader {
+	p.planText {
+		color: inherit;
+		font-size: 2em;
+		word-wrap: break-word;
+
+		white-space: pre-wrap;
+	    /* css-3 */
+	    white-space: -moz-pre-wrap;
+	    /* Mozilla, since 1999 */
+	    white-space: -pre-wrap;
+	    /* Opera 4-6 */
+	    white-space: -o-pre-wrap;
+	    /* Opera 7 */
+	    /* Internet Explorer 5.5+ */
+	}
+	.editable{
+		cursor: pointer;
+	}
+	.plainTextContainer{
+		position: relative;
+	}
+	.editingContainer {
+
+	}
+	.edit {
+		@extend .btn;
+		@extend .btn-primary;
+		width: 100px;
+		height: 34px;
+		position: absolute;
+		left: 50%;
+		margin-left: -50px;
+		top: 50%;
+		margin-top: -17px;
+		cursor: pointer;
+		float: right;
+		display: none;
+	}
+	.modifyTextarea{
+		margin-bottom: 10px;
+	}
+	button.done-btn {
+		@extend .btn;
+		@extend .btn-w-md;
+		@extend .btn-gap-v;
+		@extend .btn-primary;
+		width:30px;
+		height:30px;
+	}
+	button.cancel-btn {
+		@extend .btn;
+		@extend .btn-gap-v;
+		width:30px;
+		height:30px;
+	}
+	textarea {
+		@extend .form-control;
+		height: 2em;
+		font-size: 20px;
+	}
+	.plainTextContainer:hover{
+		.edit{
+			display: block;
+		}
+	}
+}
+
+// - editableParagraph
+.editableText.editableParagraph {
+	p.planText {
+		color: inherit;
+		font-size: 1.5em;
+		word-wrap: break-word;
+
+		white-space: pre-wrap;
+	    /* css-3 */
+	    white-space: -moz-pre-wrap;
+	    /* Mozilla, since 1999 */
+	    white-space: -pre-wrap;
+	    /* Opera 4-6 */
+	    white-space: -o-pre-wrap;
+	    /* Opera 7 */
+	    /* Internet Explorer 5.5+ */
+	}
+	.editable{
+		cursor: pointer;
+	}
+	.plainTextContainer{
+		position: relative;
+	}
+	.editingContainer {
+
+	}
+	.edit {
+		@extend .btn;
+		@extend .btn-primary;
+		width: 100px;
+		height: 34px;
+		position: absolute;
+		left: 50%;
+		margin-left: -50px;
+		top: 50%;
+		margin-top: -17px;
+		cursor: pointer;
+		float: right;
+		display: none;
+	}
+	.modifyTextarea{
+		margin-bottom: 10px;
+	}
+	button.done-btn {
+		@extend .btn;
+		@extend .btn-w-md;
+		@extend .btn-gap-v;
+		@extend .btn-primary;
+		width:30px;
+		height:30px;
+	}
+	button.cancel-btn {
+		@extend .btn;
+		@extend .btn-gap-v;
+		width:30px;
+		height:30px;
+	}
+	textarea {
+		@extend .form-control;
+		height: 2em;
+		font-size: 14px;
+	}
+	.plainTextContainer:hover{
+		.edit{
+			display: block;
+		}
+	}
+}
+
+// - editableComment
+.editableText.editableComment {
+	p.planText {
+		color: inherit;
+		font-size: 1em;
+		word-wrap: break-word;
+
+		white-space: pre-wrap;
+	    /* css-3 */
+	    white-space: -moz-pre-wrap;
+	    /* Mozilla, since 1999 */
+	    white-space: -pre-wrap;
+	    /* Opera 4-6 */
+	    white-space: -o-pre-wrap;
+	    /* Opera 7 */
+	    /* Internet Explorer 5.5+ */
+	}
+	.editable{
+		cursor: pointer;
+	}
+	.plainTextContainer{
+		position: relative;
+	}
+	.editingContainer {
+
+	}
+	.edit {
+		@extend .btn;
+		@extend .btn-primary;
+		width: 100px;
+		height: 34px;
+		position: absolute;
+		left: 50%;
+		margin-left: -50px;
+		top: 50%;
+		margin-top: -17px;
+		cursor: pointer;
+		float: right;
+		display: none;
+	}
+	.modifyTextarea{
+		margin-bottom: 10px;
+	}
+	button.done-btn {
+		@extend .btn;
+		@extend .btn-w-md;
+		@extend .btn-gap-v;
+		@extend .btn-primary;
+		width:30px;
+		height:30px;
+	}
+	button.cancel-btn {
+		@extend .btn;
+		@extend .btn-gap-v;
+		width:30px;
+		height:30px;
+	}
+	.editableText-buttons{
+		
+		float:right;
+	}
+	.editableText-labels{
+		float:left;
+	}
+	textarea {
+		@extend .form-control;
+		height: 2em;
+		font-size: 14px;
+	}
+	.plainTextContainer:hover{
+		.edit{
+			display: block;
+		}
+	}
+}
+
+// ********* WIDGETS **********
+
+// publicUser
+.publicUser.questionAuthor {
+	h4 {
+		float:right;
+	}
+	img {
+		@extend .img-circle;
+		@extend .img30_30;
+		float:right;
+		margin-top:5px;
+		margin-right:10px; 
+	}
+}
+.publicUser.commentAuthor {
+	h4 {
+		font-size: 1em;
+	}
+	img {
+		display:none;
+	}
+}
+
+
+
+// comments
+.comments.comments-question {
+	textarea {
+		@extend .form-control;
+		height: 6em;
+		font-size: 14px;
+	}
+	button{
+		@extend .btn;
+	}
+	.btn-group{
+		button{
+			@extend .btn-line-primary;
+			height:30px;
+		} 
+	}
+	button.comments-btn-post{
+		@extend .btn;
+		@extend .btn-w-md;
+		@extend .btn-primary;
+		width:30px;
+		height:30px;
+	}
+	button.comments-btn-exit{
+		width:30px;
+		height:30px;
+	}
+	.comments-addlabel{
+		margin-top:10px;
+	}
+	p.commentOverview-mainParagraph {
+	} 
+}
+
+// commentOverview
+.commentOverview.commentOverview-question{ 
+
+}
+
+.angular-google-map-container { height: 400px; } 
+
+
+
+

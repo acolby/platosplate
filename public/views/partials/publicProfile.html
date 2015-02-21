@@ -1,0 +1,51 @@
+
+<div>
+  <div class="panel panel-profile">
+    <div class="panel-heading text-center bg-info"><br/><img ng-src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/q83/p235x165/10388186_739636002182_5445883625730409849_n.jpg?oh=f51de62daf34ad318e53a504ebe5b26a&oe=554D6DBD&__gda__=1435797356_11bd96ea2a0b60b7037ff3932c1afdf6" class="img-circle" style='width: 120px; height: 120px;' />
+      <h3 style="text-transform: capitalize;">Plato Buddy</h3>
+    </div>
+    <div class="list-justified-container">
+      <ul class="list-justified text-center">
+        <li>
+          <p class="size-h3">56 grams</p>
+          <p class="text-muted">ate in last 48 hours</p>
+        </li>
+        <li>
+          <p class="size-h3">4 hours ago</p>
+          <p class="text-muted">last ate</p>
+        </li>
+        <li>
+          <p class="size-h3">Satisfied</p>
+          <p class="text-muted">Status</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <section ng-show="profile.profile.questionsPosed.length &gt; 0" class="panel panel-default">
+    <h3 class="heading text-thin">&nbsp;&nbsp;Questions Posed</h3>
+    <div class="panel-body">
+      <section ng-repeat="question in profile.profile.questionsPosed" class="panel panel-default">
+        <div ng-click="questionClicked(question)" style="cursor:pointer;" class="panel-body">
+          <h4>{{question.edits[question.edits.length -1].text}}</h4>
+          <p><span tooltip="number of views"><i class="fa fa-eye"></i><span>&nbsp;&nbsp;{{question.numberOfViews}}&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span tooltip="number of ideas posted"><i class="fa fa-lightbulb-o"></i><span>&nbsp;&nbsp;{{question.numberOfIdeas}}&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span tooltip="number of comments posted"><i class="fa fa-wechat"></i><span>&nbsp;&nbsp;{{question.numberOfComments}}&nbsp;&nbsp;</span></span></p>
+        </div>
+      </section>
+    </div>
+  </section>
+  <section ng-show="profile.profile.questionsViewed.length &gt; 0" class="panel panel-default">
+    <h3 class="heading text-thin">&nbsp;&nbsp;Questions Viewed</h3>
+    <div class="panel-body">
+      <section ng-repeat="question in profile.profile.questionsViewed" class="panel panel-default">
+        <div ng-click="questionClicked(question)" style="cursor:pointer;" class="panel-body">
+          <h4>{{question.edits[question.edits.length -1].text}}</h4>
+          <p><span tooltip="number of views"><i class="fa fa-eye"></i><span>&nbsp;&nbsp;{{question.numberOfViews}}&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span tooltip="number of ideas posted"><i class="fa fa-lightbulb-o"></i><span>&nbsp;&nbsp;{{question.numberOfIdeas}}&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span tooltip="number of comments posted"><i class="fa fa-wechat"></i><span>&nbsp;&nbsp;{{question.numberOfComments}}&nbsp;&nbsp;	</span></span></p>
+        </div>
+      </section>
+    </div>
+  </section>
+  <!-- div.col-md-12
+  section.panel.panel-default
+  	div.panel-body
+  		pre {{profile | json}}
+  -->
+</div>

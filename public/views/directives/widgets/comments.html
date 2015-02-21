@@ -1,0 +1,20 @@
+
+<div>
+  <p ng-show="numberOfComments &gt; 0" class="commentOverview-mainParagraph"><span><a ng-click="showComments = !showComments" href=""><span ng-pluralize="ng-pluralize" count="numberOfComments" when="{'0': '{} comments', '1': '{} comment','other': '{} comments'}"> </span></a></span></p>
+  <div ng-show="showComments">
+    <hr/>
+    <div ng-repeat="(id, date) in item.ids_comments">
+      <div comment-overview="comment-overview" id="id" type="type" style="margin-bottom:20" class="commentOverview commentOverview-question"></div><br/>
+    </div>
+    <hr/><a ng-click="showAddArea = !showAddArea" ng-hide="showAddArea">+ add comment</a>
+  </div><a ng-click="showAddArea = !showAddArea" ng-show="numberOfComments &lt; 1 &amp;&amp; !showAddArea">+ add comment</a>
+  <div ng-show="showAddArea" class="row">
+    <div class="col-md-12">
+      <textarea autogrow="autogrow" ng-model="newComment"></textarea><span style="float:left;">
+        <p class="comments-addlabel">label  &nbsp;&nbsp;<span class="btn-group">
+            <button ng-repeat="label in selectedLabels" ng-class="{active: label.selected === true}" ng-click="labelClicked(label)"> <span> <i ng-class="label.icon" class="fa"> </i><span>&nbsp;&nbsp; {{label.name}} &nbsp;&nbsp;</span></span></button></span></p></span><span style="float:right; margin-top:7px;">
+        <button ng-click="postClicked()" class="comments-btn-post">post</button>
+        <button ng-click="showAddArea = false" class="comments-btn-exit">x</button></span>
+    </div>
+  </div>
+</div>

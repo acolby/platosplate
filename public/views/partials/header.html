@@ -1,0 +1,101 @@
+<header class="top-header clearfix" style='z-index:50;'>
+
+	<!-- needs to be put after logo to make it working-->
+	<ul style='padding-top: 3px;' class="nav-right pull-left list-unstyled">
+		<li>
+			<a href="#/">
+				<!-- <span class="logo-icon glyphicon glyphicon-fire"></span> -->
+				<span style='font-size:30px; padding: 5px 0px 0px 20px;'><i style='color: white;' class="fa fa-bank"></i>&nbsp; Plato's Plate :)</span>
+			</a>
+		</li>
+	</ul>
+
+	<div class="dropdown">
+	    <ul data-toggle="dropdown" ng-show='userState.isLoggedIn' style='padding-top:8px; cursor:pointer;' class="pull-right list-unstyled">
+	    	<!--
+	    	<li class="dropdown">
+				<a href="javascript:;" class="dropdown-toggle" id="step1" data-toggle="dropdown"><i class="fa fa-cogs"></i></a>
+				<div class="dropdown-menu with-arrow panel panel-default admin-options" ui-not-close-on-click>
+					<div class="panel-heading"> Admin Options </div>
+					<ul class="list-group">
+						<li class="list-group-item">
+							<p>Layouts Style</p>
+							<label class="ui-radio"><input name="layout" type="radio" value="boxed" ng-model="admin.layout"><span>Boxed</span></label>
+							<label class="ui-radio"><input name="layout" type="radio" value="wide" ng-model="admin.layout"><span>Wide</span></label>
+						</li>
+						<li class="list-group-item">
+							<p>Menu Style</p>
+							<label class="ui-radio"><input name="menu" type="radio" value="vertical" ng-model="admin.menu"><span>Vertical</span></label>
+							<label class="ui-radio"><input name="menu" type="radio" value="horizontal" ng-model="admin.menu"><span>Horizontal</span></label>
+						</li>
+						<li class="list-group-item">
+							<p>Additional</p>
+							<label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" ng-model="admin.fixedHeader"><span>Fixed Top Header</span></label>
+							<br>
+							<label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" ng-model="admin.fixedSidebar"><span>Fixed Sidebar Menu</span></label>
+						</li>
+					</ul>
+				</div>
+			</li>
+			-->
+			<li style='display: inline; margin-right:10px;' class="dropdown text-center">
+				<a>
+					<img ng-src="{{userState.user.public.imageURL}}" alt="" class="img-circle img30_30">
+				</a>
+			</li>
+			<li style='display: inline; margin-right:10px;' class='text-center'>
+				<a style='position:relative; top:3px;'>
+					<span style='font-size:20px;'>{{userState.user.public.displayName}}</span>
+				</a>
+			</li>
+			<!--             
+			<li class="dropdown">
+				<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+					<span class="fa fa-magic nav-icon"></span>
+				</a>
+	            <ul class="dropdown-menu pull-right color-switch" data-ui-color-switch>
+					<li><a href="javascript:;" class="color-option color-some_color" data-style="some_color"></a></li>
+				</ul>
+			</li> -->
+	    </ul>
+	    <ul style='position:relative; top:45px; left:150px;' class="dropdown-menu with-arrow pull-right">
+	    	<!--
+			<li>
+				<a href="#/pages/profile">
+					<i class="fa fa-user"></i>
+					<span data-i18n="My Profile"></span>
+				</a>
+			</li>
+			<li>
+				<a href="#/tasks/tasks">
+					<i class="fa fa-check"></i>
+					<span data-i18n="My Tasks"></span>
+				</a>
+			</li>
+			<li>
+				<a href="#/pages/lock-screen">
+					<i class="fa fa-lock"></i>
+					<span data-i18n="Lock"></span>
+				</a>
+			</li>
+			-->
+			<li>
+				<a ng-click='logout()'>
+					<i class="fa fa-sign-out"></i> log out
+				</a>
+			</li>
+			<li ng-show='userState.isLoggedIn'>
+				<a href='#/profile'>
+					<i class="fa fa-gear"></i> profile
+				</a>
+			</li>
+		</ul>
+	</div>
+
+    <ul ng-hide='userState.isLoggedIn' style='padding-top:9px;' class="pull-right list-unstyled">
+        <li style='display: inline; margin-right:5px;' class='text-center'>
+			
+		</li>
+	</ul>
+
+</header>
