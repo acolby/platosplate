@@ -19,6 +19,7 @@
     "grunt-contrib-jade": "^0.13.0",
     "grunt-sass": "^0.15.0",
     "btce": "^0.4.4",
-    "coinbase-api": "^0.2.1"
+    "coinbase-api": "^0.2.1",
+    "domain": "0.0.1"
   }
 }
