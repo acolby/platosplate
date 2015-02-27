@@ -15,9 +15,25 @@ var core = new spark.Core({
   id: '54ff6f066678574941510867'
 });
 
-core.on('newWeight', function(info) {
-  dataRef.push(info);
-});
+
+function runPlatoPlateLogger(){
+
+	var d1 = d.create();
+
+	d1.on('error', function(err){
+		runPlatoPlateLogger();
+	});
+
+	d1.run(function(){
+
+		core.on('newWeight', function(info) {
+		  dataRef.push(info);
+		});
+
+	});
+
+}
+
 
 
 /*
