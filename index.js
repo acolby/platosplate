@@ -4,10 +4,9 @@ var express = require('express');
 var Q = require('q');
 var Firebase = require('firebase');
 var spark = require('sparknode');
+var DA = require('./dataAnalyzer/dataAnalyzer');
 
 var d = require('domain');
-
-var colb = require('./colbitrage/colbitrage');
 
 var dataRef = new Firebase('https://platosplate.firebaseio.com/values');
 
@@ -21,13 +20,34 @@ core.on('newWeight', function(info) {
 });
 
 
+/*
+
+var analyzer = DA.getDataAnalyzer();
+var now = new Date();
+
+analyzer.getSignificantRegionsAfter(now).then(function(success){
+		console.log(success.latestTime);
+		success = success.significantRegions;
+		for(var i = 0; i < success.length; i++){
+			for(var j = 0; j < success[i].dataPoints.length; j++){
+				console.log(success[i].dataPoints[j]);
+			}
+			console.log('--------');
+		}
+	}, function(error){
+		console.log('dsss');
+		console.log(error);
+	}
+);
+
+*/
 
 
 
-
-
-/***************************************************************************************************/
+//***************************************************************************************************
 // colbitrage cron - don't mind me :)
+
+/*
 var colbitrageDataRef = new Firebase('https://colbitrage.firebaseio.com/coinbaseToBTCE/Data');
 var colbitrageErrorRef = new Firebase('https://colbitrage.firebaseio.com/coinbaseToBTCE/Error');
 
@@ -54,6 +74,9 @@ function run(){
 			});
 		});
 
-	}, 4000);
+	}, 10000);
 }
 run();
+
+
+*/
